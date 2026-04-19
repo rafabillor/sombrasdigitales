@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escape Digital — Beta-Testers</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- PANTALLA: Intro -->
+  <div id="screen-intro" class="screen active">
+    <div class="scanlines"></div>
+    <div class="glitch-overlay" id="glitch-overlay"></div>
+    <div class="container">
+      <div class="logo-area">
+        <div class="logo-icon">⚡</div>
+        <h1 class="logo-title" id="glitch-title" data-text="ESCAPEDIGITAL">ESCAPE<span class="accent">DIGITAL</span></h1>
+        <p class="logo-sub">BETA-TESTERS // ALIANZA DE SEGURIDAD GLOBAL</p>
+      </div>
+      <div class="terminal-box">
+        <p class="terminal-label">// ALERTA DEL SISTEMA — HACE 24 HORAS //</p>
+        <p class="story-text">
+          El mundo se quedó a oscuras. <strong>El Internet Global ha colapsado</strong> y las comunicaciones han caído.
+        </p>
+        <p class="story-text">
+          La Alianza de Seguridad Global ha recibido un mensaje urgente. Antes de partir, debes escucharlo.
+        </p>
+        <p class="story-text mission-text">
+          ⚡ MISIÓN: Purificar los centros infectados y restaurar la conexión antes de que los datos de todo el mundo se borren para siempre.
+        </p>
+      </div>
+      <button class="btn-primary" id="btn-start" onclick="triggerGlitchAndGo()">
+        <span>RECIBIR MENSAJE</span>
+        <span class="btn-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- PANTALLA: Vídeo -->
+  <div id="screen-video" class="screen">
+    <div class="scanlines"></div>
+    <div class="container">
+      <div class="video-header">
+        <p class="terminal-label">// MENSAJE DE LA ALIANZA DE SEGURIDAD GLOBAL //</p>
+      </div>
+      <div class="video-wrapper">
+        <video id="mission-video" playsinline preload="auto">
+          <source src="assets/video-intro.mp4" type="video/mp4" />
+        </video>
+        <div class="video-overlay" id="video-overlay" onclick="playVideo()">
+          <div class="play-btn-big">▶</div>
+          <p class="play-hint">Toca para reproducir el mensaje</p>
+        </div>
+      </div>
+      <button class="btn-skip" id="btn-skip" onclick="showScreen('screen-age')" style="display:none">
+        SALTAR VÍDEO →
+      </button>
+    </div>
+  </div>
+
+  <!-- PANTALLA: Selección de edad -->
+  <div id="screen-age" class="screen">
+    <div class="scanlines"></div>
+    <div class="container">
+      <h2 class="section-title">SELECCIONA TU PERFIL</h2>
+      <p class="subtitle">Accederás a los centros de misión correspondientes a tu edad</p>
+      <div class="age-cards">
+        <button class="age-card age-card--junior" onclick="startGame('under13')">
+          <div class="age-card-glow age-card-glow--junior"></div>
+          <svg class="age-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 6L10 18V34C10 46.15 19.6 57.5 32 60C44.4 57.5 54 46.15 54 34V18L32 6Z" stroke="#00d4ff" stroke-width="2.5" fill="rgba(0,212,255,0.08)"/>
+            <path d="M24 32l5 5 11-11" stroke="#00d4ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="age-label">MENORES DE</div>
+          <div class="age-number age-number--junior">13</div>
+          <div class="age-desc">8 centros · Nivel Cadete</div>
+          <div class="age-btn age-btn--junior">ELEGIR PERFIL</div>
+        </button>
+        <button class="age-card age-card--senior" onclick="startGame('over13')">
+          <div class="age-card-glow age-card-glow--senior"></div>
+          <svg class="age-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="32,4 40,26 62,26 45,40 51,62 32,49 13,62 19,40 2,26 24,26" stroke="#ff8c00" stroke-width="2.5" fill="rgba(255,140,0,0.08)"/>
+            <circle cx="32" cy="32" r="6" fill="#ff8c00" opacity="0.6"/>
+          </svg>
+          <div class="age-label">MAYORES DE</div>
+          <div class="age-number age-number--senior">13</div>
+          <div class="age-desc">9 centros · Nivel Experto</div>
+          <div class="age-btn age-btn--senior">ELEGIR PERFIL</div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANTALLA: Transición entre escenarios -->
+  <div id="screen-transition" class="screen">
+    <div class="scanlines"></div>
+    <div class="container">
+      <div class="transition-icon" id="transition-icon">✅</div>
+      <div class="terminal-box transition-box">
+        <p class="terminal-label">// SISTEMA //</p>
+        <p class="transition-text" id="transition-text"></p>
+      </div>
+      <div class="progress-section">
+        <p class="progress-label">CENTROS PURIFICADOS</p>
+        <div class="centers-grid" id="centers-grid"></div>
+      </div>
+      <button class="btn-primary" id="transition-btn" onclick="loadCurrentScenario()">
+        <span id="transition-btn-text">SIGUIENTE CENTRO</span>
+        <span class="btn-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- PANTALLA: Escenario -->
+  <div id="screen-scenario" class="screen">
+    <div class="scanlines"></div>
+    <div class="scenario-wrap">
+      <div class="scenario-header">
+        <div class="center-badge" id="center-badge">CENTRO 1</div>
+        <div class="progress-dots" id="progress-dots"></div>
+      </div>
+      <div class="scenario-body">
+        <!-- Izquierda: media -->
+        <div class="scenario-left" id="scenario-left">
+          <div class="scenario-media" id="scenario-media">
+            <!-- sin media: columna oculta vía JS -->
+          </div>
+        </div>
+        <!-- Derecha: contexto + interacción -->
+        <div class="scenario-right">
+          <div class="scenario-alert" id="scenario-alert"></div>
+          <div class="terminal-box scenario-situation">
+            <p class="terminal-label">// SITUACIÓN DETECTADA //</p>
+            <p id="situation-text"></p>
+          </div>
+          <p class="question-text" id="question-text">¿Qué harías en esta situación?</p>
+          <div class="options-list" id="options-list"></div>
+          <div class="feedback-box" id="feedback-box" style="display:none">
+            <div class="feedback-icon" id="feedback-icon"></div>
+            <p class="feedback-text" id="feedback-text"></p>
+            <button class="btn-secondary" id="feedback-btn"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Expandir media -->
+  <div id="media-modal" class="media-modal" onclick="closeMediaModal()">
+    <div class="media-modal-inner" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeMediaModal()">✕</button>
+      <div class="media-modal-content" id="media-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- PANTALLA: Final -->
+  <div id="screen-final" class="screen">
+    <div class="scanlines"></div>
+    <div class="container">
+      <div class="final-icon">🌐</div>
+      <h2 class="final-title">¡MISIÓN COMPLETADA!</h2>
+      <div class="terminal-box">
+        <p class="terminal-label">// SISTEMA RESTAURADO //</p>
+        <p class="story-text">Las Sombras Digitales se han desvanecido. <strong>El Internet ha vuelto.</strong> Pero la amenaza no desaparece: estos riesgos existen en el mundo real cada día.</p>
+      </div>
+      <div class="risks-section">
+        <p class="risks-title">RIESGOS QUE AHORA CONOCES Y PUEDES EVITAR</p>
+        <div class="risks-grid" id="risks-grid"></div>
+      </div>
+      <div class="alert-box">
+        <p class="alert-box-text">🔒 Mantente alerta. Tu comportamiento en la red protege a los demás. Ahora eres parte de la Alianza.</p>
+      </div>
+      <button class="btn-primary" onclick="restartGame()">
+        <span>JUGAR DE NUEVO</span>
+        <span class="btn-arrow">↺</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
