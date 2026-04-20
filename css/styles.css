@@ -192,6 +192,10 @@ body {
   animation: glitch-flash 0.55s steps(1) forwards;
 }
 
+.glitch-overlay.flash {
+  animation: glitch-flash 0.3s steps(1) forwards;
+}
+
 @keyframes glitch-flash {
   0%   { opacity: 0; background: transparent; }
   10%  { opacity: 1; background: rgba(0,255,136,0.15); clip-path: inset(30% 0 40% 0); }
