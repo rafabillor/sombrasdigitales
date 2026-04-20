@@ -76,6 +76,7 @@ const ALL_SCENARIOS = [
     ageGroup: 'all',
     center: 'Centro de Bulos',
     alert: '¡Alerta! Se detecta información falsa propagándose a gran velocidad por los canales. Debéis verificar antes de que sea demasiado tarde.',
+    media: { type: 'image', src: 'assets/fake%20news.png', caption: 'Noticia viral sin verificar propagándose en redes' },
     situation: 'Estás haciendo scroll en TikTok, cuando te aparece un vídeo que muestra que el Gobierno de España ha prohibido el uso de móviles a menores de 16 años.',
     options: [
       { text: 'La difundo en mis redes sociales', correct: false, feedback: 'Si compartes sin verificar, una mentira vas a propagar. No lances noticias a la ligera, ¡que la red no sea una ratonera!' },
@@ -89,6 +90,7 @@ const ALL_SCENARIOS = [
     ageGroup: 'all',
     center: 'Centro de Críticas',
     alert: '⚠️ Los sensores de autoestima están cayendo en picado. Se detectan comentarios dañinos en los canales. ¡Actuad ya!',
+    media: { type: 'image', src: 'assets/bodyshaming.png', caption: 'Comentarios ofensivos en un reel de fitness' },
     situation: 'Te encuentras en Instagram con un reel de una chica de contenido fitness y, al entrar en los comentarios, ves que la mayoría son burlas hacia su cuerpo.',
     options: [
       { text: 'Le doy like a los comentarios', correct: false, feedback: 'Si un \'like\' decides regalar, al que insulta vas a animar. Del cuerpo ajeno no hay que opinar, ¡el respeto siempre debe ganar!' },
@@ -115,6 +117,7 @@ const ALL_SCENARIOS = [
     ageGroup: 'all',
     center: 'Centro de Estafa',
     alert: '⚠️ Se detecta un parásito financiero y psicológico en el sistema. ¡No te dejes caer en sus garras!',
+    media: { type: 'image', src: 'assets/Loot%20boxes.png', caption: 'Oferta de caja misteriosa en videojuego' },
     situation: 'Estás jugando a tu videojuego favorito y de repente te salta esta oferta para abrir una caja misteriosa con recompensas interesantes. Puedes ganar objetos exclusivos o perder tus monedas. El contador dice: "¡Solo quedan 2 cajas disponibles!"',
     options: [
       { text: 'La compro sin consultar con mis padres', correct: false, feedback: '¡Cuidado, atención! Es una tentación. Si compras la caja sin saber qué hay dentro, perder tus monedas será el final del cuento.' },
@@ -150,29 +153,59 @@ let state = {
 
 /* ── Screen Navigation ─────────────────────────────────── */
 
+let glitchInterval = null;
+
+function flashGlitch() {
+  const overlay = document.getElementById('glitch-overlay');
+  if (!overlay || overlay.classList.contains('active') || overlay.classList.contains('flash')) return;
+  overlay.classList.add('flash');
+  setTimeout(() => overlay.classList.remove('flash'), 300);
+}
+
+function startPeriodicGlitch() {
+  stopPeriodicGlitch();
+  glitchInterval = setInterval(flashGlitch, 3500);
+}
+
+function stopPeriodicGlitch() {
+  clearInterval(glitchInterval);
+  glitchInterval = null;
+}
+
+const NON_QUIZ_SCREENS = ['screen-intro', 'screen-video', 'screen-age', 'screen-transition', 'screen-final'];
+
 function showScreen(id) {
   if (id !== 'screen-video') {
     const v = document.getElementById('mission-video');
     if (v) v.pause();
   }
+
+  const overlay = document.getElementById('glitch-overlay');
+  overlay.classList.remove('active', 'flash');
+  void overlay.offsetWidth;
+  overlay.classList.add('active');
+  setTimeout(() => overlay.classList.remove('active'), 560);
+
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo(0, 0);
+
+  if (NON_QUIZ_SCREENS.includes(id)) {
+    startPeriodicGlitch();
+  } else {
+    stopPeriodicGlitch();
+  }
 }
 
 /* ── Glitch Transition ─────────────────────────────────── */
 
 function triggerGlitchAndGo() {
-  const overlay = document.getElementById('glitch-overlay');
-  const title   = document.getElementById('glitch-title');
-  const btn     = document.getElementById('btn-start');
-  btn.disabled  = true;
-
-  overlay.classList.add('active');
+  const title = document.getElementById('glitch-title');
+  const btn   = document.getElementById('btn-start');
+  btn.disabled = true;
   title.classList.add('glitching');
 
   setTimeout(() => {
-    overlay.classList.remove('active');
     title.classList.remove('glitching');
     btn.disabled = false;
     goToVideo();
@@ -502,3 +535,6 @@ function restartGame() {
 function nextScenario() {
   loadCurrentScenario();
 }
+
+/* ── Init ──────────────────────────────────────────────── */
+startPeriodicGlitch();
