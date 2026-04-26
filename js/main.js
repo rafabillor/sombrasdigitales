@@ -132,7 +132,7 @@ const ALL_SCENARIOS = [
     ageGroup: 'all',
     center: 'Centro de Privacidad',
     alert: '⚠️ ¡Último centro! Se ha detectado una última amenaza. ⏳ Tienes 30 segundos antes del reinicio.',
-    media: { type: 'image', src: 'assets/Robo%20de%20contrase%C3%B1as.png', caption: 'Correo falso de Instagram alertando de un intento de acceso' },
+    media: { type: 'image', src: 'assets/Robo%20de%20contrasenas.png', caption: 'Correo falso de Instagram alertando de un intento de acceso' },
     situation: 'Te ha llegado un correo de Instagram avisando de un intento de acceso a tu cuenta.',
     options: [
       { text: 'Pulsar el botón de "proteger mi cuenta"', correct: false, feedback: 'No todo lo que parece es de fiar; mejor mirar quién lo envía antes de pulsar.' },
