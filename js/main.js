@@ -23,121 +23,123 @@ const ALL_SCENARIOS = [
     media: { type: 'image', src: 'assets/sexting.png', caption: 'Capturas reales: foto íntima reenviada sin consentimiento en WhatsApp' },
     situation: 'Empiezas a recibir muchas notificaciones y, al entrar en WhatsApp, ves que una amiga y un amigo te han enviado fotos íntimas de otras personas que solo se las habían enviado a ellos.',
     options: [
-      { text: 'Se la paso a otro grupo que tengo', correct: false, feedback: 'Si la sigues pasando, el daño va aumentando. Compartir lo privado es un gran error, ¡respeta a los otros y sé mucho mejor!' },
-      { text: 'Le digo que la borre y que no la pase. Yo no la comparto', correct: true, feedback: '¡Has sido valiente al actuar! Cortar la cadena es saber cuidar. Proteges la imagen y la dignidad, ¡eso es actuar con responsabilidad!' },
-      { text: 'Le mando un 😂 y me la guardo', correct: false, feedback: 'Aunque te rías y decidas guardarla, no ayudas a nadie por quedártela sin más. Lo que a ti te hace gracia, a otra persona le duele. Si haces algo a tiempo, todo se resuelve.' }
+      { text: 'Se la paso a otro grupo que tengo', correct: false, feedback: 'Si la sigues pasando, el daño va aumentando. Es algo privado: mejor cortarlo y no seguir reenviando.' },
+      { text: 'Le digo que la borre y que no la pase. Yo no la comparto', correct: true, feedback: '¡Has sido valiente al actuar! Cortar la cadena es saber cuidar. Proteges la imagen y la dignidad: eso es actuar con responsabilidad.' },
+      { text: 'Le mando un 😂 y me la guardo', correct: false, feedback: 'Reírte o guardarla no es ayudar: lo que a ti te hace gracia puede hacer daño de verdad; mejor saber frenar y no continuar.' }
     ],
     successTransition: 'Cifrado de privacidad restaurado. Habéis detenido la difusión a tiempo, pero el sistema sigue inestable. ¡Cuidado! El virus está infectando a grupos enteros. El algoritmo está creando una espiral de intolerancia que amenaza con dividir el mundo físico. Debéis romper la cámara de eco antes de que el sistema colapse.'
   },
   {
     id: 'ciberodio',
     ageGroup: 'all',
-    center: 'Centro de Odio',
+    center: 'Centro de Respeto',
     alert: 'El algoritmo está creando una espiral de intolerancia que amenaza con dividir el mundo físico. Debéis romper la cámara de eco antes de que el sistema colapse.',
     media: { type: 'video', src: 'assets/ciberodio.mp4' },
     situation: 'Estás en el grupo de WhatsApp y empiezan a saltar mensajes sin parar. Cuando entras, ves que, por un vídeo de X, están soltando comentarios sobre un grupo de personas por su origen.',
     options: [
-      { text: 'Lo reenvío a otro grupo para que lo vean', correct: false, feedback: 'Si lo reenvías, el daño puede aumentar. Mejor frenar a tiempo y no hacerlo viral.' },
-      { text: 'No sigo el rollo y denuncio el reel en Instagram', correct: true, feedback: '¡Excelente decisión has tomado! Al insulto le has cortado el paso. Denunciar es cuidar al de al lado, y un internet mejor habrás creado.' },
-      { text: 'Me sumo a las bromas e insultos', correct: false, feedback: 'Unirse a la mofa no te hace mejor, solo hace que todo vaya a peor. El respeto es siempre la mejor opción, ¡di no a la discriminación!' }
+      { text: 'Lo reenvío a otro grupo para que lo vean', correct: false, feedback: 'Cada vez que lo reenvías, el daño crece más: mejor frenarlo a tiempo y no hacerlo viral.' },
+      { text: 'No sigo el rollo y denuncio el reel en Instagram', correct: true, feedback: '¡Bien hecho! Cortar el paso al insulto es un gran acto: denunciar es cuidar al de al lado.' },
+      { text: 'Me sumo a las bromas e insultos', correct: false, feedback: 'Seguir la mofa no es solución, solo hace crecer la situación; no entrar al juego y elegir otra opción.' }
     ],
-    successTransition: 'El ruido se detiene… habéis limpiado los canales. El Centro de Odio está expuesto y las Sombras Digitales se desvanecen, pero los sensores siguen en rojo. No es un fallo de hardware… hemos detectado a una persona en el foco.'
+    successTransition: 'El Centro de Respeto se ha estabilizado y las Sombras Digitales se desvanecen, pero los sensores siguen en rojo. No es un fallo de hardware… hemos detectado a una persona en el foco.'
   },
   {
     id: 'ciberacoso',
     ageGroup: 'all',
-    center: 'Centro de Acoso',
+    center: 'Centro de Empatía',
     alert: 'Hemos detectado una señal de socorro activa. Un perfil está siendo atacado en el sistema. ¡Hay que actuar ya!',
     media: { type: 'video', src: 'assets/ciberacoso.mp4' },
-    situation: 'Estás en el grupo de clase y ves que han estado haciendo comentarios sobre una compañera, Sandra, hasta que se ha salido del grupo. Después la vuelven a meter para seguir burlándose de ella.',
+    situation: 'Estás en el grupo de WhatsApp de clase y se están metiendo con una compañera, Sandra. Se sale, pero la vuelven a meter para seguir riéndose de ella.',
     options: [
-      { text: 'No digo nada y solo leo los mensajes', correct: false, feedback: 'Si te quedas solo mirando, al que insulta estás ayudando. No seas testigo del mal comportamiento, ¡rompe el silencio en este momento!' },
-      { text: 'Me sumo a los insultos', correct: false, feedback: 'Sumarse al ataque es un gran error, causas en ella un profundo dolor. Lo que en el grupo decidas publicar, a tus compañeros puede dañar.' },
-      { text: 'Le escribo por privado para ver si está bien', correct: true, feedback: 'Tu mensaje es un rayo de luz, le quitas de encima una pesada cruz. Ayudar al que sufre es un gesto valiente, ¡así se comporta un buen referente!' }
+      { text: 'No digo nada y solo leo los mensajes', correct: false, feedback: 'Quedarte solo mirando también cuenta en la situación: el silencio deja pasar el daño; apoyar a quien lo sufre cambia la dirección.' },
+      { text: 'Me sumo a los insultos', correct: false, feedback: 'Lo que se dice puede afectar; apoyar a quien lo pasa mal es fundamental.' },
+      { text: 'Le escribo por privado para ver si está bien', correct: true, feedback: '¡Bien hecho! Escribirle por privado es una buena acción: le haces sentir acompañada y animas a otros a cambiar su reacción.' }
     ],
-    successTransition: 'Habéis protegido a la víctima y el Centro de Acoso ha sido restaurado, pero… el virus ha mutado. ¡Iniciando escaneo de perfiles! Ahora toca ver si sabes detectarlo.'
+    successTransition: 'Habéis protegido a la víctima y el Centro de Empatía ha sido restaurado, pero… el virus ha mutado. ¡Iniciando escaneo de perfiles! Demuestra lo que eres capaz de detectar.'
   },
   {
     id: 'grooming',
     ageGroup: 'all',
-    center: 'Centro de Engaño',
-    alert: '¡Iniciando escaneo de perfiles! Se detecta un patrón de comportamiento sospechoso. Demuestra lo que eres capaz de detectar.',
+    center: 'Centro de Seguridad Personal',
+    alert: '¡Iniciando escaneo de perfiles! Demuestra lo que eres capaz de detectar.',
     media: { type: 'image', src: 'assets/grooming.png', caption: 'Chat real en consola: un desconocido pide tu número personal' },
-    situation: 'Llevas varios días escribiéndote con un chico con el que sueles jugar a videojuegos. Un día te pide tu número de teléfono para poder avisarte para jugar.',
+    situation: 'Llevas unos días hablando por el chat de la Play con alguien con quien sueles jugar. Os lleváis bien, pero no lo conoces fuera del juego. Un día te pide tu número de teléfono para avisarte cuando se conecte.',
     options: [
-      { text: 'Le paso mi número para jugar otro día', correct: false, feedback: 'Dar tu teléfono es un gran error, con un extraño no estarás mejor. Dar tu número a alguien que no conoces le permite contactarte fuera del juego. ¡Protege siempre tu información!' },
-      { text: 'No le paso mi número y le bloqueo', correct: true, feedback: '¡Qué buena respuesta, has estado atento! Cortar el contacto es un gran acierto. Si no le conoces, mejor no hablar, tu tranquilidad debes priorizar.' },
-      { text: 'No le paso mi número, pero le doy mi Insta', correct: false, feedback: 'Darle tu Insta es darle una pista, aunque parezca que no está a la vista. Compartir tus redes con alguien desconocido también puede exponer información personal. ¡Mantén tu perfil siempre protegido!' }
+      { text: 'Le paso mi número para hablar por ahí otro día', correct: false, feedback: 'Dar tu número puede parecer sin importancia, aunque te dé confianza, mejor guardar distancia.' },
+      { text: 'No le paso mi número y le bloqueo', correct: true, feedback: '¡Bien visto! Cortar a tiempo es protección: si no sabes quién es, cuida tu información.' },
+      { text: 'No le paso mi número, pero le doy mi Insta', correct: false, feedback: 'Dar tu Insta también abre la conversación, mejor cuidar lo que compartes y con quién hablas con precaución.' }
     ],
-    successTransition: '¡Identidad del impostor confirmada! El virus ha sido purgado y el Centro de Engaño se ha estabilizado, pero en su retirada ha activado una trampa de fragmentación que altera los datos.'
+    successTransition: 'Algo no encajaba y has sabido detectarlo. El virus ha sido eliminado y el Centro de Seguridad Personal se ha estabilizado, pero antes de desaparecer ha alterado los datos. Lo está haciendo otra vez… está en tus manos distinguir qué es verdad y qué no.'
   },
   {
     id: 'fakenews',
     ageGroup: 'all',
-    center: 'Centro de Bulos',
+    center: 'Centro de Pensamiento Crítico',
     alert: '¡Alerta! Se detecta información falsa propagándose a gran velocidad por los canales. Debéis verificar antes de que sea demasiado tarde.',
     media: { type: 'image', src: 'assets/fake%20news.png', caption: 'Noticia viral sin verificar propagándose en redes' },
-    situation: 'Estás haciendo scroll en TikTok, cuando te aparece un vídeo que muestra que el Gobierno de España ha prohibido el uso de móviles a menores de 16 años.',
+    situation: 'Estás en TikTok haciendo scroll y te aparece un vídeo en el que hablan de una nueva medida del Gobierno de España.',
     options: [
-      { text: 'La difundo en mis redes sociales', correct: false, feedback: 'Si compartes sin verificar, una mentira vas a propagar. No lances noticias a la ligera, ¡que la red no sea una ratonera!' },
-      { text: 'Busco si la noticia aparece en medios fiables antes de compartirla', correct: true, feedback: '¡Gran decisión has tomado! El dato has contrastado. No te dejes engañar, la verdad siempre hay que buscar.' },
-      { text: 'Miro los comentarios a ver si alguien dice si es verdad', correct: false, feedback: 'En los comentarios no está la verdad, pues falta mucha objetividad. Busca siempre un medio oficial, ¡así serás un genio digital!' }
+      { text: 'La difundo en mis redes sociales', correct: false, feedback: 'Cuando algo no está claro, puede causar confusión; mejor pararse un momento y buscar otra versión.' },
+      { text: 'Busco si la noticia aparece en medios fiables antes de compartirla', correct: true, feedback: '¡Bien hecho! No todo lo que parece es verdad, fijarse en quién lo cuenta ayuda a ver la realidad.' },
+      { text: 'Miro los comentarios a ver si alguien dice si es verdad', correct: false, feedback: 'Lo que dicen otros no siempre es señal, puede haber opiniones, pero no un dato real.' }
     ],
-    successTransition: '¡Adiós al clickbait! El Centro de Bulos está protegido. Pero ¡cuidado! Los sensores de autoestima están cayendo en picado.'
+    successTransition: '¡Clickbait neutralizado! El Centro de Pensamiento Crítico está protegido, pero algo no va bien… los niveles de autoestima están cayendo. El virus ha cambiado de objetivo.'
   },
   {
     id: 'bodyshaming',
     ageGroup: 'all',
-    center: 'Centro de Críticas',
+    center: 'Centro de Autoestima',
     alert: '⚠️ Los sensores de autoestima están cayendo en picado. Se detectan comentarios dañinos en los canales. ¡Actuad ya!',
     media: { type: 'image', src: 'assets/bodyshaming.png', caption: 'Comentarios ofensivos en un reel de fitness' },
-    situation: 'Te encuentras en Instagram con un reel de una chica de contenido fitness y, al entrar en los comentarios, ves que la mayoría son burlas hacia su cuerpo.',
+    situation: 'Estás en Instagram y te aparece un reel de una chica de contenido fitness. Al entrar en los comentarios, ves que la mayoría son burlas sobre su cuerpo.',
     options: [
-      { text: 'Le doy like a los comentarios', correct: false, feedback: 'Si un \'like\' decides regalar, al que insulta vas a animar. Del cuerpo ajeno no hay que opinar, ¡el respeto siempre debe ganar!' },
-      { text: 'Paso del vídeo y sigo viendo otro', correct: false, feedback: 'Si pasas de largo y decides callar, a la víctima no vas a ayudar. No mires hacia otro lado, ¡el silencio es un mal aliado!' },
-      { text: 'Denuncio los comentarios ofensivos y digo que esto no está bien', correct: true, feedback: '¡Qué valiente es tu reacción! Poner límites es la solución. Cuidar a otros es lo más genial, ¡eres un héroe del mundo digital!' }
+      { text: 'Le doy like a los comentarios', correct: false, feedback: 'Un simple gesto puede reforzar la acción, y hacer que continúe la misma situación; mejor usar las redes desde el respeto y la reflexión.' },
+      { text: 'Paso del vídeo y sigo viendo otro', correct: false, feedback: 'Mirar y seguir puede parecer lo normal, pero quien lo recibe no lo vive igual; apoyar también es saber actuar.' },
+      { text: 'Denuncio los comentarios ofensivos y digo que esto no está bien', correct: true, feedback: '¡Bien hecho! Frenar este tipo de acción crea un espacio con respeto y protección.' }
     ],
-    successTransition: 'Lograste acabar con el odio injustificado, por lo que el Centro de Críticas está a salvo de amenazas. Sin embargo, una nueva amenaza está atacando vuestros terminales. ¡No muerdas el anzuelo!'
+    successTransition: '¡Has frenado las burlas! El Centro de Autoestima está a salvo. Pero algo no encaja… un nuevo virus se está propagando por el sistema y cada vez es más difícil de detectar.'
   },
   {
     id: 'phishing',
     ageGroup: 'all',
     center: 'Centro de Identidad',
     alert: '¡Alerta! Se detecta un intento de suplantación de identidad. Un mensaje sospechoso está llegando a los terminales. ¡No muerdas el anzuelo!',
+    media: { type: 'image', src: 'assets/Phishing-TikTok.png', caption: 'DM falso de TikTok prometiendo verificación y monedas' },
     situation: 'Recibes un DM de una cuenta llamada "TikTok-Security-Center-2026" (con el logo de TikTok como foto de perfil). El mensaje dice: "¡Felicidades! Tu cuenta ha sido seleccionada para recibir la insignia de verificación y un bono de 5.000 monedas. Tienes 24 horas para reclamarlo. Haz clic aquí para verificar tu identidad: www.tiktok-verify-rewards.io"',
     options: [
-      { text: 'Hacer clic rápido en el enlace para no perder el regalo', correct: false, feedback: 'Si haces clic sin pensar, tu cuenta van a robar. No des tu contraseña a un extraño, ¡o sufrirás un gran daño!' },
-      { text: 'Reenviar el mensaje a un amigo para que él también gane los puntos', correct: false, feedback: 'Hablar con un amigo está muy bien, pero él puede caer también. Mejor cuéntale a un adulto el cuento, para estar seguro en todo momento.' },
-      { text: 'Bloquear la cuenta, reportar el mensaje y no abrir el enlace', correct: true, feedback: '¡Lo has hecho fenomenal! Has evitado un final fatal. Si reportas al estafador, de la red eres el mejor.' }
+      { text: 'Entrar en el enlace para no perder el regalo', correct: false, feedback: 'Si algo te apura y te invita a clicar, mejor parar un momento y pensarlo antes de actuar.' },
+      { text: 'Reenviarlo a un amigo para que también lo tenga', correct: false, feedback: 'Si lo compartes sin pensar, tu amigo también puede confiar; mejor hablarlo con alguien antes de reenviar.' },
+      { text: 'Bloquear la cuenta, reportar el mensaje y no abrir el enlace', correct: true, feedback: '¡Bien hecho! Has visto la trampa a tiempo y no has caído en el intento.' }
     ],
-    successTransition: '¡Lograste no picar por esta vez! El Centro de Identidad está seguro. ¡Casi acabaste con todos los virus! El siguiente es un parásito financiero y psicológico. ¡No te dejes caer en sus garras!'
+    successTransition: '¡Has evitado la trampa! El Centro de Identidad está a salvo. Estás cada vez más cerca de acabar con los virus… pero uno nuevo aparece: parece inofensivo, pero puede engancharte.'
   },
   {
     id: 'lootboxes',
     ageGroup: 'all',
-    center: 'Centro de Estafa',
+    center: 'Centro de Autocontrol',
     alert: '⚠️ Se detecta un parásito financiero y psicológico en el sistema. ¡No te dejes caer en sus garras!',
     media: { type: 'image', src: 'assets/Loot%20boxes.png', caption: 'Oferta de caja misteriosa en videojuego' },
     situation: 'Estás jugando a tu videojuego favorito y de repente te salta esta oferta para abrir una caja misteriosa con recompensas interesantes. Puedes ganar objetos exclusivos o perder tus monedas. El contador dice: "¡Solo quedan 2 cajas disponibles!"',
     options: [
-      { text: 'La compro sin consultar con mis padres', correct: false, feedback: '¡Cuidado, atención! Es una tentación. Si compras la caja sin saber qué hay dentro, perder tus monedas será el final del cuento.' },
-      { text: 'Paso y sigo jugando', correct: true, feedback: '¡Muy buena elección, mantén la atención! No necesitas cajas para ser un campeón, lo que importa es tu esfuerzo y la diversión.' },
-      { text: 'Le digo a un amigo que la compre conmigo para probar suerte', correct: false, feedback: 'Convencer a un amigo no es el camino, pues nadie controla este raro destino. Gastar en la suerte suele salir mal, ¡mejor jueguen juntos de forma real!' }
+      { text: 'Uso el saldo de la tarjeta monedero para abrir la caja', correct: false, feedback: 'Al gastar para abrir, puedes querer repetir; mejor poner un límite antes de seguir.' },
+      { text: 'Paso y sigo jugando', correct: true, feedback: '¡Bien hecho! Has sabido elegir y no caer; jugar es para disfrutar, no para gastar sin valorar.' },
+      { text: 'Pedir dinero a amigos para abrirla', correct: false, feedback: 'Si pides para jugar, otros te pueden ayudar; pero el problema sigue y puede aumentar.' }
     ],
-    successTransition: '¡Bóveda sellada! Habéis resistido la tentación del azar y recuperado los créditos del sistema, el Centro de Estafa se ha recuperado. ¡Vamos a por el último Centro antes del reinicio!'
+    successTransition: '¡Bóveda sellada! Has evitado caer en la trampa y recuperado los créditos del sistema. El Centro de Autocontrol se ha estabilizado… pero se ha detectado una última amenaza. ⏳ Tienes 30 segundos antes del reinicio.'
   },
   {
     id: 'robocontrasena',
     ageGroup: 'all',
     center: 'Centro de Privacidad',
-    alert: '⚠️ ¡Último centro! Se detecta un intento de robo de credenciales. ¡Revisa que todo esté en orden!',
-    situation: 'Estás viendo vídeos cuando te llega una notificación que parece ser de Instagram: "⚠️ ALERTA DE SEGURIDAD: Hemos detectado varios intentos fallidos de inicio de sesión en tu cuenta desde Moscú, Rusia. Por tu seguridad, hemos bloqueado el acceso temporalmente. Para desbloquear tu cuenta, haz clic en el siguiente botón."',
+    alert: '⚠️ ¡Último centro! Se ha detectado una última amenaza. ⏳ Tienes 30 segundos antes del reinicio.',
+    media: { type: 'image', src: 'assets/Robo%20de%20contrase%C3%B1as.png', caption: 'Correo falso de Instagram alertando de un intento de acceso' },
+    situation: 'Te ha llegado un correo de Instagram avisando de un intento de acceso a tu cuenta.',
     options: [
-      { text: 'Haces clic rápido en el botón para cambiar la contraseña cuanto antes', correct: false, feedback: 'Si al botón le das sin pensar, el pirata te va a pescar. Lo que parece una solución, ¡es solo una gran suplantación!' },
-      { text: 'No haces clic. Abres Instagram tú mismo y vas a Configuración > Seguridad para ver si hay avisos reales', correct: true, feedback: '¡Eres todo un detective, así el peligro no te recibe! Entra tú mismo en la aplicación y evita cualquier suplantación.' },
-      { text: 'Ignoras el mensaje. Total, mi contraseña es el nombre de mi perro, no se la sabe nadie', correct: false, feedback: 'Si tu clave es muy sencilla, te pillarán de maravilla. El nombre de tu perro no es seguridad, ¡ponle números y más dificultad!' }
+      { text: 'Pulsar el botón de "proteger mi cuenta"', correct: false, feedback: 'No todo lo que parece es de fiar; mejor mirar quién lo envía antes de pulsar.' },
+      { text: 'Abrir Instagram y comprobar desde la app', correct: true, feedback: '¡Eres todo un detective, así el peligro no te recibe! Entra tú mismo en la aplicación y evita cualquier suplantación.' },
+      { text: 'Pasar del correo porque tu contraseña es segura', correct: false, feedback: 'Confiarse no vale, cualquiera puede entrar; mejor revisar a tiempo para tu cuenta cuidar.' }
     ],
-    successTransition: 'El ruido se detiene... habéis limpiado todos los canales. El Centro de Privacidad está seguro. Las Sombras Digitales se han desvanecido. ¡El Internet ha vuelto!'
+    successTransition: 'El ruido se detiene… Has limpiado todos los canales. El Centro de Privacidad está seguro. Las Sombras Digitales se han desvanecido. La conexión ha vuelto… ahora está en tus manos mantenerla.'
   }
 ];
 
