@@ -38,7 +38,7 @@ const ALL_SCENARIOS = [
     situation: 'Estás en el grupo de WhatsApp y empiezan a saltar mensajes sin parar. Cuando entras, ves que, por un vídeo de X, están soltando comentarios sobre un grupo de personas por su origen.',
     options: [
       { text: 'Lo reenvío a otro grupo para que lo vean', correct: false, feedback: 'Cada vez que lo reenvías, el daño crece más: mejor frenarlo a tiempo y no hacerlo viral.' },
-      { text: 'No sigo el rollo y denuncio el reel en Instagram', correct: true, feedback: '¡Bien hecho! Cortar el paso al insulto es un gran acto: denunciar es cuidar al de al lado.' },
+      { text: 'No sigo el rollo y denuncio el vídeo', correct: true, feedback: '¡Bien hecho! Cortar el paso al insulto es un gran acto: denunciar es cuidar al de al lado.' },
       { text: 'Me sumo a las bromas e insultos', correct: false, feedback: 'Seguir la mofa no es solución, solo hace crecer la situación; no entrar al juego y elegir otra opción.' }
     ],
     successTransition: 'El Centro de Respeto se ha estabilizado y las Sombras Digitales se desvanecen, pero los sensores siguen en rojo. No es un fallo de hardware… hemos detectado a una persona en el foco.'
@@ -48,12 +48,12 @@ const ALL_SCENARIOS = [
     ageGroup: 'all',
     center: 'Centro de Empatía',
     alert: 'Hemos detectado una señal de socorro activa. Un perfil está siendo atacado en el sistema. ¡Hay que actuar ya!',
-    media: { type: 'video', src: 'assets/ciberacoso.mp4' },
-    situation: 'Estás en el grupo de WhatsApp de clase y se están metiendo con una compañera, Sandra. Se sale, pero la vuelven a meter para seguir riéndose de ella.',
+    media: { type: 'video', src: 'assets/CB_WP_2.mp4' },
+    situation: 'Estás en el grupo de clase de WhatsApp y ves que alguien ha creado otro grupo.',
     options: [
-      { text: 'No digo nada y solo leo los mensajes', correct: false, feedback: 'Quedarte solo mirando también cuenta en la situación: el silencio deja pasar el daño; apoyar a quien lo sufre cambia la dirección.' },
-      { text: 'Me sumo a los insultos', correct: false, feedback: 'Lo que se dice puede afectar; apoyar a quien lo pasa mal es fundamental.' },
-      { text: 'Le escribo por privado para ver si está bien', correct: true, feedback: '¡Bien hecho! Escribirle por privado es una buena acción: le haces sentir acompañada y animas a otros a cambiar su reacción.' }
+      { text: 'Reacciono con emojis y sigo el rollo', correct: false, feedback: 'Reírse puede hacer que todo vaya a más; mejor parar a tiempo y no reforzar.' },
+      { text: 'Me quedo en el grupo sin decir nada', correct: false, feedback: 'Quedarte al margen deja todo igual; dar un paso a tiempo puede ayudar.' },
+      { text: 'Digo que no está bien y me salgo del grupo', correct: true, feedback: '¡Bien hecho! Dar el paso ayuda a cambiar; marcar un límite también es cuidar.' }
     ],
     successTransition: 'Habéis protegido a la víctima y el Centro de Empatía ha sido restaurado, pero… el virus ha mutado. ¡Iniciando escaneo de perfiles! Demuestra lo que eres capaz de detectar.'
   },
@@ -105,7 +105,7 @@ const ALL_SCENARIOS = [
     center: 'Centro de Identidad',
     alert: '¡Alerta! Se detecta un intento de suplantación de identidad. Un mensaje sospechoso está llegando a los terminales. ¡No muerdas el anzuelo!',
     media: { type: 'image', src: 'assets/Phishing-TikTok.png', caption: 'DM falso de TikTok prometiendo verificación y monedas' },
-    situation: 'Recibes un DM de una cuenta llamada "TikTok-Security-Center-2026" (con el logo de TikTok como foto de perfil). El mensaje dice: "¡Felicidades! Tu cuenta ha sido seleccionada para recibir la insignia de verificación y un bono de 5.000 monedas. Tienes 24 horas para reclamarlo. Haz clic aquí para verificar tu identidad: www.tiktok-verify-rewards.io"',
+    situation: 'Recibes un DM de TikTok.',
     options: [
       { text: 'Entrar en el enlace para no perder el regalo', correct: false, feedback: 'Si algo te apura y te invita a clicar, mejor parar un momento y pensarlo antes de actuar.' },
       { text: 'Reenviarlo a un amigo para que también lo tenga', correct: false, feedback: 'Si lo compartes sin pensar, tu amigo también puede confiar; mejor hablarlo con alguien antes de reenviar.' },
@@ -119,7 +119,7 @@ const ALL_SCENARIOS = [
     center: 'Centro de Autocontrol',
     alert: '⚠️ Se detecta un parásito financiero y psicológico en el sistema. ¡No te dejes caer en sus garras!',
     media: { type: 'image', src: 'assets/Loot%20boxes.png', caption: 'Oferta de caja misteriosa en videojuego' },
-    situation: 'Estás jugando a tu videojuego favorito y de repente te salta esta oferta para abrir una caja misteriosa con recompensas interesantes. Puedes ganar objetos exclusivos o perder tus monedas. El contador dice: "¡Solo quedan 2 cajas disponibles!"',
+    situation: 'Estás jugando y de repente aparece esta oferta en pantalla.',
     options: [
       { text: 'Uso el saldo de la tarjeta monedero para abrir la caja', correct: false, feedback: 'Al gastar para abrir, puedes querer repetir; mejor poner un límite antes de seguir.' },
       { text: 'Paso y sigo jugando', correct: true, feedback: '¡Bien hecho! Has sabido elegir y no caer; jugar es para disfrutar, no para gastar sin valorar.' },
@@ -132,7 +132,7 @@ const ALL_SCENARIOS = [
     ageGroup: 'all',
     center: 'Centro de Privacidad',
     alert: '⚠️ ¡Último centro! Se ha detectado una última amenaza. ⏳ Tienes 30 segundos antes del reinicio.',
-    media: { type: 'image', src: 'assets/Robo%20de%20contrasenas.png', caption: 'Correo falso de Instagram alertando de un intento de acceso' },
+    media: { type: 'image', src: 'assets/Robo%20de%20contrasenas.png' },
     situation: 'Te ha llegado un correo de Instagram avisando de un intento de acceso a tu cuenta.',
     options: [
       { text: 'Pulsar el botón de "proteger mi cuenta"', correct: false, feedback: 'No todo lo que parece es de fiar; mejor mirar quién lo envía antes de pulsar.' },
@@ -152,6 +152,58 @@ let state = {
   completedCenters: [],
   lastAnswerCorrect: false
 };
+
+/* ── Countdown ─────────────────────────────────────────── */
+
+let countdownTimer = null;
+
+function startCountdown(seconds) {
+  clearCountdown();
+
+  const el = document.createElement('div');
+  el.id = 'countdown-display';
+  el.className = 'countdown-display';
+  el.innerHTML = '⏳ <span id="countdown-num">' + seconds + '</span>s';
+
+  const header = document.querySelector('.scenario-header');
+  header.parentNode.insertBefore(el, header.nextSibling);
+
+  let remaining = seconds;
+  countdownTimer = setInterval(() => {
+    remaining--;
+    const numEl = document.getElementById('countdown-num');
+    if (numEl) numEl.textContent = remaining;
+    if (remaining <= 10) el.classList.add('countdown-urgent');
+    if (remaining <= 0) {
+      clearCountdown();
+      triggerCountdownTimeout();
+    }
+  }, 1000);
+}
+
+function clearCountdown() {
+  if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+  const el = document.getElementById('countdown-display');
+  if (el) el.remove();
+}
+
+function triggerCountdownTimeout() {
+  document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+  const fb = document.getElementById('feedback-box');
+  fb.style.display = 'flex';
+  fb.className = 'feedback-box is-incorrect';
+  document.getElementById('feedback-icon').textContent = '💥';
+  document.getElementById('feedback-text').textContent = '¡Tiempo agotado! El sistema ha reiniciado. Inténtalo de nuevo.';
+  const fbBtn = document.getElementById('feedback-btn');
+  fbBtn.textContent = 'INTENTAR DE NUEVO';
+  fbBtn.onclick = retryScenario;
+
+  const overlay = document.getElementById('glitch-overlay');
+  overlay.classList.remove('active', 'flash');
+  void overlay.offsetWidth;
+  overlay.classList.add('active');
+  setTimeout(() => overlay.classList.remove('active'), 560);
+}
 
 /* ── Screen Navigation ─────────────────────────────────── */
 
@@ -177,6 +229,8 @@ function stopPeriodicGlitch() {
 const NON_QUIZ_SCREENS = ['screen-intro', 'screen-video', 'screen-age', 'screen-transition', 'screen-final'];
 
 function showScreen(id) {
+  clearCountdown();
+
   if (id !== 'screen-video') {
     const v = document.getElementById('mission-video');
     if (v) v.pause();
@@ -330,6 +384,11 @@ function loadCurrentScenario() {
   fb.className = 'feedback-box';
 
   showScreen('screen-scenario');
+
+  // Countdown para el último centro
+  if (sc.id === 'robocontrasena') {
+    startCountdown(30);
+  }
 }
 
 /* ── Scenario Media Renderer ───────────────────────────── */
@@ -453,10 +512,17 @@ function selectOption(index, clickedBtn) {
   const fbBtn = document.getElementById('feedback-btn');
 
   if (opt.correct) {
+    clearCountdown();
     state.lastAnswerCorrect = true;
     state.completedCenters.push(sc.center);
-    fbBtn.textContent = 'CONTINUAR →';
-    fbBtn.onclick = showSuccessTransition;
+    const isLastScenario = state.currentIndex === state.scenarios.length - 1;
+    if (isLastScenario) {
+      fbBtn.textContent = 'VER MISIÓN COMPLETADA →';
+      fbBtn.onclick = () => { state.currentIndex++; showFinal(); };
+    } else {
+      fbBtn.textContent = 'CONTINUAR →';
+      fbBtn.onclick = showSuccessTransition;
+    }
   } else {
     state.lastAnswerCorrect = false;
     fbBtn.textContent = 'INTENTAR DE NUEVO';
